@@ -1,1 +1,62 @@
-<sl-badge>Yay!</sl-badge>
+<div style="width: 950px; margin: auto">
+  <%= sl_form_for FormModel.new, url: "/" do |form| %>
+    <%
+      %w(
+      basic
+      no_label
+      placeholder
+      clearable
+      toggle_password
+      pill
+      disabled
+      sizes
+      prefix_and_suffix_icons
+      help_text
+      inputs_with_dropdowns
+      input_types
+      color_picker
+      radio
+      range
+      select
+      switch
+      textarea
+    ).each do |example| %>
+      <h3 style="margin-bottom: 0">
+        <%= example.titleize %>
+      </h3>
+      <sl-tab-group>
+        <sl-tab slot="nav" panel="browser">
+          Browser
+        </sl-tab>
+        <sl-tab slot="nav" panel="erb">
+          ERB
+        </sl-tab>
+        <sl-tab slot="nav" panel="html">
+          HTML
+        </sl-tab>
+
+        <% output = render "form_components/#{example}", form: form %>
+
+        <sl-tab-panel name="browser">
+          <%= output %>
+        </sl-tab-panel>
+        <sl-tab-panel name="erb">
+          <pre><code class="language-erb"><%= Rails.root.join("app/views/form_components/_#{example}.html.erb").read %></code></pre>
+        </sl-tab-panel name="erb">
+        <sl-tab-panel name="html">
+          <pre><code class="language-html"><%= output.gsub!(" ", " ") %></code></pre>
+        </sl-tab-panel>
+      </sl-tab-group>
+    <% end %>
+
+    <h3 style="margin-bottom: 0">
+      Submit Buttons
+    </h3>
+
+    <%#= form.submit %>
+    <sl-button submit name="commit" value="Create User" data-confirm="Test test2" data-disable-with="disabled...">Submit</sl-button>
+    <sl-button submit name="commit" value="Create User" data-confirm="Test test2" disabled>disabled</sl-button>
+    <br>
+    <br>
+  <% end %>
+</div>

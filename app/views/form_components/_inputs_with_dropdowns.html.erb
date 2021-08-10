@@ -1,0 +1,24 @@
+<%= form.text_field :name, label: 'Phone' do %>
+  <sl-icon slot="prefix" name="telephone"></sl-icon>
+
+  <sl-dropdown slot="suffix" placement="bottom-end" hoist style="margin-right: .25rem;">
+    <sl-button slot="trigger" caret type="text" size="small">
+      Home
+    </sl-button>
+    <sl-menu>
+      <sl-menu-item checked>
+        Home
+      </sl-menu-item>
+      <sl-menu-item>
+        Mobile
+      </sl-menu-item>
+      <sl-menu-item>
+        Work
+      </sl-menu-item>
+    </sl-menu>
+  </sl-dropdown>
+
+  <div slot="help-text">
+    Please enter a phone number where we can reach you.
+  </div>
+<% end %>
