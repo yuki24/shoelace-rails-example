@@ -8,7 +8,32 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/erb.min.js"></script>
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      body {
+        font-family: var(--sl-font-sans);
+        font-size: var(--sl-font-size-medium);
+        font-weight: var(--sl-font-weight-normal);
+        letter-spacing: var(--sl-letter-spacing-normal);
+        color: var(--sl-color-gray-800);
+        line-height: var(--sl-line-height-normal);
+      }
+
+      code {
+        background: #f8f8f8 !important;
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('pre code').forEach((el) => hljs.highlightElement(el))
+      })
+    </script>
   </head>
 
   <body>
