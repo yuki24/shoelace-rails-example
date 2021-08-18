@@ -1,0 +1,12 @@
+<%= form.check_box :name %><br>
+<%= form.check_box :name, checked: true %><br>
+<%= form.check_box :name, indeterminate: true %><br>
+<%= form.check_box :name, disabled: true %><br>
+
+<%= form.check_box :name, {}, "checked_value", "unchecked_value" do %>
+  Custom checked and unchecked value
+<% end %><br>
+
+<%= form.check_box :name do %>
+  Custom label
+<% end %><br>

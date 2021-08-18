@@ -1,5 +1,7 @@
-<sl-select placeholder="Select one">
-  <sl-menu-item value="option-1">Option 1</sl-menu-item>
-  <sl-menu-item value="option-2">Option 2</sl-menu-item>
-  <sl-menu-item value="option-3">Option 3</sl-menu-item>
-</sl-select>
+<h4>Single Select</h4>
+
+<%= form.collection_select :name, { id_1: "Option 1", id_2: "Option 2", id_3: "Option 3" }, :first, :last, {}, { placeholder: "Select one" } %>
+
+<h4>Multi Select</h4>
+
+<%= form.collection_select :name, { id_1: "Option 1", id_2: "Option 2", id_3: "Option 3" }, :first, :last, {}, { placeholder: "Select", multiple: true, clearable: true } %>
